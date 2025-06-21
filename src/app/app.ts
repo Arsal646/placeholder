@@ -1,6 +1,6 @@
 // src/app/app.component.ts
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
 import { PlaceholderConfig } from './models/placeholder-config';
 import { PlaceholderService } from './services/placeholder';
@@ -30,7 +30,8 @@ export class App implements OnInit {
     private fb: FormBuilder,
     private placeholderService: PlaceholderService,
     private meta: Meta,
-    private title: Title
+    private title: Title,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.placeholderForm = this.fb.group({
       width: [400],
@@ -44,7 +45,12 @@ export class App implements OnInit {
 
   ngOnInit(): void {
     this.updatePreview();
+    
+
+      if (isPlatformBrowser(this.platformId)) {
+    // This code will only run in the browser
     this.setSEOData();
+  }
     
     // Listen to form changes
     this.placeholderForm.valueChanges.subscribe(() => {
