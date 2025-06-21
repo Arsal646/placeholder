@@ -90,12 +90,12 @@ currentYear = new Date().getFullYear();
 
   private setSEOData() {
     // Set title
-    this.title.setTitle('Image Placeholder Generator | Custom Dummy Images for Web Design');
+    this.title.setTitle('Free Image Placeholder Generator | Custom Dummy Images');
     
     // Set meta tags
     this.meta.updateTag({ 
       name: 'description', 
-      content: 'Fast, free image placeholder generator for developers and designers. Create custom dummy images with any dimensions, colors, and text for your projects.' 
+      content: 'Fast, free image placeholder generator for developers and designers. Create custom dummy images with any dimensions, colors,font and text for your projects.' 
     });
     
     this.meta.updateTag({ name: 'keywords', content: 'image placeholder, dummy images, placeholder generator, web design tool, mockup images' });
