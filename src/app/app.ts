@@ -95,14 +95,14 @@ currentYear = new Date().getFullYear();
     // Set meta tags
     this.meta.updateTag({ 
       name: 'description', 
-      content: 'Fast, free image placeholder generator for developers and designers. Create custom dummy images with any dimensions, colors,font and text for your projects.' 
+      content: 'Generate custom image placeholder instantly. Choose size, text, font, and colors. Download in JPG, PNG, WebP, or SVG formats. No sign-up required.' 
     });
     
     this.meta.updateTag({ name: 'keywords', content: 'image placeholder, dummy images, placeholder generator, web design tool, mockup images' });
     
     // Open Graph tags
     this.meta.updateTag({ property: 'og:title', content: 'Free Image Placeholder Generator Tool' });
-    this.meta.updateTag({ property: 'og:description', content: 'Generate custom placeholder images instantly for web design and mockups' });
+    this.meta.updateTag({ property: 'og:description', content: 'Generate custom image placeholder instantly for web design and mockups' });
     this.meta.updateTag({ property: 'og:type', content: 'website' });
     
     // Add schema markup
@@ -116,7 +116,7 @@ currentYear = new Date().getFullYear();
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "Image Placeholder Generator",
-      "description": "Free online tool to generate custom placeholder images",
+      "description": "Free online tool to generate custom image placeholder",
       "url": window.location.href,
       "applicationCategory": "Design Tool"
     });
