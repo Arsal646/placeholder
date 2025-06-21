@@ -25,6 +25,8 @@ export class App implements OnInit {
     { value: 'webp', label: 'WebP' },
     { value: 'gif', label: 'GIF' }
   ];
+currentYear = new Date().getFullYear();
+
 
   constructor(
     private fb: FormBuilder,
@@ -39,7 +41,8 @@ export class App implements OnInit {
       backgroundColor: ['#cccccc'],
       textColor: ['#969696'],
       customText: [''],
-      format: ['png']
+      format: ['png'],
+      fontFamily: ['lato']  // Default font supported by placehold.co
     });
   }
 
@@ -54,6 +57,7 @@ export class App implements OnInit {
     
     // Listen to form changes
     this.placeholderForm.valueChanges.subscribe(() => {
+    
       this.updatePreview();
     });
   }
@@ -119,4 +123,123 @@ export class App implements OnInit {
     
     document.head.appendChild(script);
   }
+
+
+
+presets = [
+  {
+    label: 'Web Banner',
+    config: {
+      width: 1200,
+      height: 400,
+      backgroundColor: '#e0e0e0',
+      textColor: '#000000',
+      customText: 'Web Banner',
+      format: 'png',
+      fontFamily: 'roboto'
+    }
+  },
+  {
+    label: 'Instagram Post',
+    config: {
+      width: 1080,
+      height: 1080,
+      backgroundColor: '#fdf6e3',
+      textColor: '#333333',
+      customText: 'Instagram Post',
+      format: 'jpg',
+      fontFamily: 'montserrat'
+    }
+  },
+  {
+    label: 'Mobile Preview',
+    config: {
+      width: 375,
+      height: 667,
+      backgroundColor: '#d1d5db',
+      textColor: '#111827',
+      customText: 'Mobile View',
+      format: 'webp',
+      fontFamily: 'inter'
+    }
+  },
+  {
+    label: 'Facebook Cover',
+    config: {
+      width: 820,
+      height: 312,
+      backgroundColor: '#4267B2',
+      textColor: '#ffffff',
+      customText: 'Facebook Cover',
+      format: 'png',
+      fontFamily: 'open sans'
+    }
+  },
+  {
+    label: 'YouTube Thumbnail',
+    config: {
+      width: 1280,
+      height: 720,
+      backgroundColor: '#ff0000',
+      textColor: '#ffffff',
+      customText: 'YouTube Thumbnail',
+      format: 'jpg',
+      fontFamily: 'oswald'
+    }
+  },
+  {
+    label: 'Ad Banner (300x250)',
+    config: {
+      width: 300,
+      height: 250,
+      backgroundColor: '#fef2f2',
+      textColor: '#7f1d1d',
+      customText: 'Ad Banner',
+      format: 'png',
+      fontFamily: 'poppins'
+    }
+  },
+  {
+    label: 'App Icon (512x512)',
+    config: {
+      width: 512,
+      height: 512,
+      backgroundColor: '#ffffff',
+      textColor: '#0f172a',
+      customText: 'App Icon',
+      format: 'webp',
+      fontFamily: 'lato'
+    }
+  },
+  {
+    label: 'Twitter Post',
+    config: {
+      width: 1200,
+      height: 675,
+      backgroundColor: '#1DA1F2',
+      textColor: '#ffffff',
+      customText: 'Twitter Post',
+      format: 'jpg',
+      fontFamily: 'nunito'
+    }
+  },
+  {
+    label: 'LinkedIn Post',
+    config: {
+      width: 1200,
+      height: 627,
+      backgroundColor: '#0077B5',
+      textColor: '#ffffff',
+      customText: 'LinkedIn Post',
+      format: 'jpg',
+      fontFamily: 'ubuntu'
+    }
+  }
+];
+
+
+applyPreset(preset: any): void {
+  this.placeholderForm.patchValue(preset.config);
+}
+
 }

@@ -5,8 +5,10 @@ export interface PlaceholderConfig {
   backgroundColor: string;
   textColor: string;
   customText: string;
-  format: 'png' | 'jpg' | 'webp' | 'gif';
+  format: string;
+  fontFamily: string;
 }
+
 
 export const DEFAULT_CONFIG: PlaceholderConfig = {
   width: 400,
@@ -14,5 +16,6 @@ export const DEFAULT_CONFIG: PlaceholderConfig = {
   backgroundColor: '#cccccc',
   textColor: '#969696',
   customText: '',
-  format: 'png'
+  format: 'png',
+  fontFamily:''
 };

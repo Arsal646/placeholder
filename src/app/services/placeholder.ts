@@ -20,20 +20,40 @@ export class PlaceholderService {
     return this.configSubject.value;
   }
 
-  generateUrl(config: PlaceholderConfig): string {
-    const { width, height, backgroundColor, textColor, customText, format } = config;
-    
-    const bgColor = backgroundColor.replace('#', '');
-    const txtColor = textColor.replace('#', '');
-    
-    let url = `https://placehold.co/${width}x${height}/${bgColor}/${txtColor}/${format}`;
-    
-    if (customText && customText.trim()) {
-      url += `?text=${encodeURIComponent(customText.trim())}`;
-    }
-    
-    return url;
+generateUrl(formValue: PlaceholderConfig): string {
+  const {
+    width,
+    height,
+    backgroundColor,
+    textColor,
+    customText,
+    format,
+    fontFamily
+  } = formValue;
+
+  const bgColor = backgroundColor.replace('#', '');
+  const txtColor = textColor.replace('#', '');
+
+  let url = `https://placehold.co/${width}x${height}/${bgColor}/${txtColor}.${format}`;
+  const queryParams: string[] = [];
+
+  if (customText && customText.trim()) {
+    queryParams.push(`text=${encodeURIComponent(customText.trim())}`);
   }
+
+
+
+   if (fontFamily) {
+    queryParams.push(`font=${encodeURIComponent(fontFamily)}`);
+  }
+
+  if (queryParams.length > 0) {
+    url += `?${queryParams.join('&')}`;
+  }
+
+  return url;
+}
+
 
   async downloadImage(url: string, filename: string): Promise<void> {
     try {
