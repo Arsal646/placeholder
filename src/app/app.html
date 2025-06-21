@@ -90,7 +90,7 @@
             <div class="grid grid-cols-4 gap-1.5">
               <button *ngFor="let option of formatOptions" type="button"
                 (click)="placeholderForm.patchValue({format: option.value})"
-                class="text-xs px-2 py-1.5 rounded-lg transition text-center"
+                class="text-xs px-2 py-1.5 rounded-lg transition text-center cursor-pointer"
                 [class.bg-blue-500]="placeholderForm.get('format')?.value === option.value"
                 [class.text-white]="placeholderForm.get('format')?.value === option.value"
                 [class.bg-gray-200]="placeholderForm.get('format')?.value !== option.value"
