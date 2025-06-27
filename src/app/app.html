@@ -7,7 +7,7 @@
       <p class="text-gray-600 text-sm mt-1">Create custom placeholder images instantly</p>
     </header>
 
-    <div class="flex flex-col md:flex-row gap-6">
+    <div class="flex flex-col md:flex-row gap-3 md-gap-6">
 
       <!-- Controls Panel -->
       <aside class="w-full md:w-[400px] bg-white rounded-xl shadow-lg p-5 space-y-6">
@@ -80,17 +80,18 @@
 
           <!-- Colors -->
           <div class="grid grid-cols-2 gap-2">
-            <div class="flex flex-col items-center text-center border border-gray-300 rounded-md p-1">
-              <label for="backgroundColor" class="text-[9px] text-gray-600 mb-0.5">BG</label>
+            <div class="flex items-center border border-gray-300 rounded-md px-2 py-1 h-[40px]">
+              <label for="backgroundColor" class="text-[11px] text-gray-600 mr-2 whitespace-nowrap">BG</label>
               <input type="color" id="backgroundColor" formControlName="backgroundColor"
-                class="w-8 h-5 p-0 border-none cursor-pointer rounded-sm" />
+                class=" h-5 p-0 border-none cursor-pointer rounded-sm w-full" />
             </div>
-            <div class="flex flex-col items-center text-center border border-gray-300 rounded-md p-1">
-              <label for="textColor" class="text-[9px] text-gray-600 mb-0.5">Text</label>
+            <div class="flex items-center border border-gray-300 rounded-md px-2 py-1 h-[40px]">
+              <label for="textColor" class="text-[11px] text-gray-600 mr-2 whitespace-nowrap">Text</label>
               <input type="color" id="textColor" formControlName="textColor"
-                class="w-8 h-5 p-0 border-none cursor-pointer rounded-sm" />
+                class=" h-5 p-0 border-none cursor-pointer rounded-sm w-full" />
             </div>
           </div>
+
 
 
           <!-- Format -->
