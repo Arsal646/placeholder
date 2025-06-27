@@ -29,4 +29,8 @@ select {
   select {
   height: 36px;
 }
+
+.colors{
+  margin-bottom: 0;
+}
 }
