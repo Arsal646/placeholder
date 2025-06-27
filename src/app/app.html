@@ -13,16 +13,31 @@
       <aside class="w-full md:w-[400px] bg-white rounded-xl shadow-lg p-5 space-y-5">
         <!-- Presets -->
         <div>
-          <h3 class="text-xs font-semibold text-gray-600 uppercase mb-2">Presets</h3>
+      
+          <div class="flex justify-between">
+                <h3 class="text-xs font-semibold text-gray-600 uppercase mb-2">Presets</h3>
 
-          <!-- Mobile horizontal scroll + wrap on medium screens and above -->
-          <div class="flex flex-nowrap overflow-x-auto gap-2 md:flex-wrap md:overflow-visible">
-            <button *ngFor="let preset of presets" (click)="applyPreset(preset)" type="button"
-              class="text-xs px-3 cursor-pointer py-1.5 rounded-md border border-gray-300 bg-gray-100 hover:bg-blue-100 transition shrink-0">
-              {{ preset.label }}
+                      <!-- Link-style control (underline only) -->
+            <button (click)="navigateToPresetSection()" type="button"
+              class="text-xs font-medium cursor-pointer text-blue-600 underline hover:no-underline focus:outline-none shrink-0">
+              View More Presets
             </button>
           </div>
+
+          <!-- Row with link-style View-More first, then presets -->
+          <div class="flex flex-nowrap overflow-x-auto gap-2 md:flex-wrap md:overflow-visible items-center">
+
+            <!-- Regular preset buttons -->
+            <ng-container *ngFor="let preset of presets">
+              <button (click)="applyPreset(preset)" type="button"
+                class="text-xs px-3 py-1.5 rounded-md border cursor-pointer border-gray-300 bg-gray-100 hover:bg-blue-100 transition shrink-0">
+                {{ preset.label }}
+              </button>
+            </ng-container>
+
+          </div>
         </div>
+
 
 
         <form [formGroup]="placeholderForm" class="space-y-5">
@@ -78,7 +93,7 @@
 
 
           <!-- Colors -->
-           
+
           <div class="grid grid-cols-2 gap-2 colors">
             <div class="flex items-center border border-gray-300 rounded-md px-2 py-1 h-[40px]">
               <label for="backgroundColor" class="text-[11px] text-gray-600 mr-2 whitespace-nowrap">BG</label>
@@ -177,12 +192,391 @@
     </div>
   </div>
 
-  <footer class="bg-white shadow-inner py-6 px-4 mt-6">
+  <!-- Comprehensive SEO Content Sections -->
 
+  <!-- What is Image Placeholder Generator Section -->
+  <section class="bg-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-left mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">What is an Image Placeholder Generator?</h2>
+        <p class=" text-gray-600 max-w-3xl ">A powerful online tool that creates custom dummy images for web
+          development, design mockups, and prototyping without the need for real photos.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 class="text-2xl font-semibold text-gray-900 mb-4">Why Use Placeholder Images?</h3>
+          <p class="text-gray-700 mb-4">Placeholder images are essential tools for web developers, UI/UX designers, and
+            digital marketers. They serve as temporary visual content during the development phase, allowing you to
+            focus on layout, design, and functionality without being distracted by content selection.</p>
+          <p class="text-gray-700 mb-6">Our free image placeholder generator eliminates the common problem of broken
+            layouts caused by missing images, ensuring your projects maintain visual consistency throughout the
+            development process.</p>
+
+          <div class="space-y-3">
+            <div class="flex items-center">
+              <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+              <span class="text-gray-700">Maintain consistent design layouts</span>
+            </div>
+            <div class="flex items-center">
+              <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+              <span class="text-gray-700">Speed up development workflow</span>
+            </div>
+            <div class="flex items-center">
+              <div class="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+              <span class="text-gray-700">Test responsive designs effectively</span>
+            </div>
+            <div class="flex items-center">
+              <div class="w-2 h-2 bg-orange-500 rounded-full mr-3"></div>
+              <span class="text-gray-700">Present professional mockups to clients</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-2xl">
+          <div class="text-left cursor-pointer" (click)="navigateToTop()">
+            <div
+              class="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl mb-6 flex items-center justify-center">
+              <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                </path>
+              </svg>
+            </div>
+            <h4 class="text-xl font-semibold text-gray-900 mb-3">Generate Any Size</h4>
+            <p class="text-gray-600">Create placeholder images from 1x1 pixels to 4000x4000 pixels. Perfect for any
+              project requirement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="bg-gray-50 py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-left mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Powerful Features for Professional Results</h2>
+        <p class=" text-gray-600">Everything you need to create perfect placeholder images for your projects</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6 feature-icon">
+            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z">
+              </path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Lightning Fast Generation</h3>
+          <p class="text-gray-600">Generate custom placeholder images instantly with our optimized HTML5 Canvas
+            technology. No server delays or loading times.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mb-6 feature-icon">
+            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4">
+              </path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Complete Customization</h3>
+          <p class="text-gray-600">Control every aspect: dimensions, background colors, text colors, custom text, and
+            font families. Perfect for brand consistency.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6 feature-icon">
+            <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Multiple Export Formats</h3>
+          <p class="text-gray-600">Download in JPG, PNG, WebP, or SVG formats. Choose the best format for your specific
+            use case and optimization needs.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-16 h-16 bg-orange-100 rounded-xl flex items-center justify-center mb-6 feature-icon">
+            <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Mobile Responsive</h3>
+          <p class="text-gray-600">Fully optimized for mobile devices. Create and download placeholder images on any
+            device, anywhere, anytime.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-16 h-16 bg-red-100 rounded-xl flex items-center justify-center mb-6 feature-icon">
+            <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">No Registration Required</h3>
+          <p class="text-gray-600">Start generating placeholder images immediately. No account creation, no email
+            verification, no hidden fees or limitations.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-16 h-16 bg-indigo-100 rounded-xl flex items-center justify-center mb-6 feature-icon">
+            <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+              </path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Easy URL Sharing</h3>
+          <p class="text-gray-600">Generate shareable URLs for your placeholder images. Perfect for team collaboration
+            and consistent design systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Use Section -->
+  <section class="bg-white py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          How to Use Our Image Placeholder Generator
+        </h2>
+        <p class="text-gray-600 text-lg">
+          Follow these quick steps to generate your ideal placeholder image.
+        </p>
+      </div>
+
+      <div class="relative md:border-l-4 border-gray-200 space-y-12  pl-[50px] md:pl-6">
+        <!-- Step 1 -->
+        <div class="relative">
+          <div
+            class="absolute -left-12 top-0 w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold shadow-lg">
+            1
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Set Dimensions</h3>
+          <p class="text-gray-600 text-sm">
+            Define your image size by entering width and height, or choose from ready-made <span class="cursor-pointer underline text-blue-500" (click)="navigateToPresetSection()">social media presets.</span>
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative">
+          <div
+            class="absolute -left-12 top-0 w-10 h-10 rounded-full bg-green-600 flex items-center justify-center text-white font-bold shadow-lg">
+            2
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Customize Appearance</h3>
+          <p class="text-gray-600 text-sm">
+            Personalize the look with background color, text color, font, and optional overlay text.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative">
+          <div
+            class="absolute -left-12 top-0 w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center text-white font-bold shadow-lg">
+            3
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Choose Format</h3>
+          <p class="text-gray-600 text-sm">
+            Select from JPG, PNG, WebP, or SVG formats to suit your project or platform requirements.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="relative">
+          <div
+            class="absolute -left-12 top-0 w-10 h-10 rounded-full bg-orange-600 flex items-center justify-center text-white font-bold shadow-lg">
+            4
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Download or Share</h3>
+          <p class="text-gray-600 text-sm">
+            Instantly download your image or copy a direct URL to use it across your design tools and platforms.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Use Cases Section -->
+  <section class="bg-gray-50 py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-left mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Perfect for Every Professional Need</h2>
+        <p class=" text-gray-600">Discover how our placeholder image generator solves real-world design and development
+          challenges</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Web Development</h3>
+          <p class="text-gray-600 text-sm">Fill image containers during development to prevent broken layouts. Test
+            responsive designs with various image dimensions before adding real content.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+          <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z">
+              </path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">UI/UX Design</h3>
+          <p class="text-gray-600 text-sm">Create consistent mockups and wireframes. Present design concepts to clients
+            without being distracted by irrelevant stock photos.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+          <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
+              </path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Rapid Prototyping</h3>
+          <p class="text-gray-600 text-sm">Speed up the prototyping process with instantly generated images. Focus on
+            functionality and user experience rather than content sourcing.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+          <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+              </path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Team Collaboration</h3>
+          <p class="text-gray-600 text-sm">Share consistent placeholder images across team members. Maintain design
+            system integrity during collaborative projects.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+          <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Marketing Materials</h3>
+          <p class="text-gray-600 text-sm">Create placeholder graphics for marketing campaigns, social media posts, and
+            advertising materials before final content is ready.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+          <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+              </path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Educational Content</h3>
+          <p class="text-gray-600 text-sm">Create educational materials, tutorials, and documentation with consistent
+            placeholder images that don't distract from the learning content.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Sizes Section -->
+  <section class="bg-white py-16" id="category-social-media">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-left mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Most Popular Placeholder Image Sizes</h2>
+        <p class=" text-gray-600">Quick access to the most commonly used image dimensions across different platforms and
+          use cases</p>
+      </div>
+
+      <!-- presets.component.html -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div *ngFor="let group of presetCategories"
+          class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+          <h3 class="text-lg font-semibold text-gray-900 mb-4">{{ group.name }}</h3>
+
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li *ngFor="let item of group.value" class="flex justify-between cursor-pointer"
+              (click)="applyPreset(item)">
+              <span>{{ item.label }}</span>
+              <span class="font-mono underline">{{ item.config.width }}×{{ item.config.height }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="bg-gray-50 py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-left mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+        <p class=" text-gray-600">Everything you need to know about our image placeholder generator</p>
+      </div>
+
+      <div class="space-y-6">
+        <div class="bg-white rounded-lg p-6 shadow-sm">
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Is the image placeholder generator completely free?</h3>
+          <p class="text-gray-600">Yes, our image placeholder generator is 100% free to use. There are no hidden fees,
+            subscription requirements, or usage limits. You can generate unlimited placeholder images without creating
+            an account.</p>
+        </div>
+
+        <div class="bg-white rounded-lg p-6 shadow-sm">
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">What image formats are supported?</h3>
+          <p class="text-gray-600">We support four popular image formats: JPG (best for photographs and complex images),
+            PNG (best for images with transparency), WebP (modern format with excellent compression), and SVG (vector
+            format for scalable graphics).</p>
+        </div>
+
+        <div class="bg-white rounded-lg p-6 shadow-sm">
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">What's the maximum image size I can generate?</h3>
+          <p class="text-gray-600">You can generate placeholder images up to 4000×4000 pixels. This covers virtually all
+            use cases from small thumbnails to large print materials and high-resolution displays.</p>
+        </div>
+
+        <div class="bg-white rounded-lg p-6 shadow-sm">
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Can I use these images commercially?</h3>
+          <p class="text-gray-600">Yes, all generated placeholder images can be used for commercial purposes. Since
+            these are simple geometric shapes with text, there are no copyright restrictions. However, they're intended
+            as temporary placeholders during development.</p>
+        </div>
+
+        <div class="bg-white rounded-lg p-6 shadow-sm">
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">How do I share placeholder images with my team?</h3>
+          <p class="text-gray-600">Each generated image has a unique URL that you can copy and share with team members.
+            This ensures everyone uses the same placeholder images, maintaining consistency across your project.</p>
+        </div>
+
+        <div class="bg-white rounded-lg p-6 shadow-sm">
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Does the tool work on mobile devices?</h3>
+          <p class="text-gray-600">Our placeholder generator is fully responsive and optimized for mobile devices. You
+            can create, customize, and download placeholder images from any smartphone or tablet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEO Content Footer -->
+  <footer class="bg-white shadow-inner py-6 px-4 mt-6">
     <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 text-sm text-gray-700">
-      <!-- Section 1: About -->
+      <!-- About Section -->
       <div>
-        <h2 class="text-base font-bold text-gray-900 mb-2">Free image Placeholder Generator That Actually Works</h2>
+        <h2 class="text-base font-bold text-gray-900 mb-2">Free Image Placeholder Generator</h2>
         <p class="mb-2">Easily generate custom images for mockups or design placeholders in any size you need. Choose
           dimensions, add optional text, select colors, and download instantly in JPG, PNG, WebP, or SVG – no sign-up
           needed.</p>
@@ -190,7 +584,7 @@
           great on mobile too.</p>
       </div>
 
-      <!-- Section 2: Use Cases -->
+      <!-- Use Cases Section -->
       <div>
         <h2 class="text-base font-bold text-gray-900 mb-2">Use Cases This Tool Solves</h2>
         <p class="text-gray-600 text-sm mb-1"><strong>Broken layouts:</strong> Fill image spaces while your site is
@@ -206,24 +600,10 @@
       </div>
     </div>
 
-    <!-- Full-width Presets section -->
-    <div class="max-w-6xl mx-auto mt-10 pt-6 border-t border-gray-300 text-gray-700">
-      <h3 class="text-base font-bold text-gray-900 mb-3">Popular Presets You Can Generate</h3>
-      <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-        <li><strong>Facebook Cover:</strong> 820×312 for profile or business pages</li>
-        <li><strong>LinkedIn Banner:</strong> 1584×396 for personal or company profiles</li>
-        <li><strong>Instagram Post:</strong> 1080×1080 square post format</li>
-        <li><strong>YouTube Thumbnail:</strong> 1280×720 recommended size</li>
-        <li><strong>Mobile Mockup:</strong> 375×667 for iPhone preview screens</li>
-        <li><strong>App Icon:</strong> 512×512 or 1024×1024 image testing</li>
-        <li><strong>Ad Banner:</strong> 300×250 standard ad block preview</li>
-        <li><strong>Twitter Header:</strong> 1500×500 for personal or business profiles</li>
-      </ul>
-      <p class="mt-3 text-gray-600 text-sm">Easily select these from presets or enter dimensions manually.</p>
-    </div>
 
-    <div class="text-center text-xs text-gray-400 mt-6 pb-12 md:p-0">
-      © {{ currentYear }} Image Placeholder Generator — Built for developers, designers & dreamers.
+
+    <div class="text-center text-xs text-gray-400 mt-6 pb-12 md:pb-0">
+      © <span id="currentYear"></span> Image Placeholder Generator — Built for developers, designers & dreamers.
     </div>
   </footer>
 
