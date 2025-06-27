@@ -9,6 +9,7 @@
 select {
   height: 34px;
   padding: 0;
+  padding-left: 5px;
 }
 
 @media (max-width: 768px) {
