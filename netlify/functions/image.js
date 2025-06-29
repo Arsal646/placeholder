@@ -4,14 +4,16 @@ exports.handler = async (event) => {
   try {
     const path = event.path || "";
 
-    // Match /api/image/300x250.png or /api/image/300x250.svg etc.
+    // Extract size and format: /api/image/300x250.png
     const sizeMatch = path.match(/\/api\/image\/(\d+)x(\d+)\.(png|jpg|webp|svg)$/);
 
     if (!sizeMatch) {
       return {
         statusCode: 200,
-        body: "Welcome to Image Placeholder API!\nUse URL format: /api/image/300x250.png?bg=ccc&color=000&text=Hello",
         headers: { "Content-Type": "text/plain" },
+        body:
+          "Welcome to Image Placeholder API!\n" +
+          "Use URL format: /api/image/300x250.png?bg=ccc&color=000&text=Hello",
       };
     }
 
@@ -25,7 +27,7 @@ exports.handler = async (event) => {
 
     const svg = `
       <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
-        <rect width="100%" height="100%" fill="#${bg}"/>
+        <rect width="100%" height="100%" fill="#${bg}" />
         <text x="50%" y="50%" fill="#${color}" font-family="Arial, sans-serif"
           font-size="${fontSize}" dominant-baseline="middle" text-anchor="middle">${displayText}</text>
       </svg>`;
@@ -41,9 +43,7 @@ exports.handler = async (event) => {
       };
     }
 
-    const imageBuffer = await sharp(Buffer.from(svg))
-      .toFormat(format)
-      .toBuffer();
+    const imageBuffer = await sharp(Buffer.from(svg)).toFormat(format).toBuffer();
 
     return {
       statusCode: 200,
@@ -54,10 +54,10 @@ exports.handler = async (event) => {
       body: imageBuffer.toString("base64"),
       isBase64Encoded: true,
     };
-
   } catch (error) {
     return {
       statusCode: 500,
+      headers: { "Content-Type": "text/plain" },
       body: `Error generating image: ${error.message}`,
     };
   }
