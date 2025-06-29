@@ -1,9 +1,14 @@
 [build]
-command = "ng build"
+command   = "ng build"
+publish   = "dist/image-placeholder/browser"
 functions = "netlify/functions"
-publish = "dist/image-placeholder/browser"
 
-[[redirects]]
-  from = "/api/image/:size"
-  to = "/.netlify/functions/image"
+[functions]               # <-- let Netlify know you use Sharp
+  node_bundler           = "esbuild"
+  external_node_modules  = ["sharp"]
+
+[[redirects]]             # <-- keep this AFTER the [build] / [functions] blocks
+  from   = "/api/image/*" # matches ANYTHING under /api/image/
+  to     = "/.netlify/functions/image"
   status = 200
+  force  = true           # skip Angular’s own catch‑all route
