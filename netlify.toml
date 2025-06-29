@@ -2,3 +2,8 @@
 command = "ng build"
 functions = "netlify/functions"
 publish = "dist/image-placeholder/browser"
+
+[[redirects]]
+  from = "/api/image/:size"
+  to = "/.netlify/functions/image"
+  status = 200
