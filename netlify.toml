@@ -7,14 +7,3 @@
   from = "/image"
   to = "/.netlify/functions/image"
   status = 200
-
-[[redirects]]
-  from = "/image/*"
-  to = "/.netlify/functions/image"
-  status = 200
-
-# This should be LAST - catches all other routes for Angular SPA
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
