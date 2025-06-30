@@ -3,10 +3,6 @@
   publish = "dist/image-placeholder/browser"
   functions = "netlify/functions"
 
-[functions]
-  node_bundler = "esbuild"
-  external_node_modules = ["sharp"]
-  included_files         = ["node_modules/sharp/**/*"]   # ← NEW
 
 [[redirects]]
   from   = "/image"
@@ -19,4 +15,11 @@
   to     = "/.netlify/functions/image"
   status = 200
   force  = true
+
+[[redirects]]
+  from   = "/image/*"
+  to     = "/.netlify/functions/image/:splat"
+  status = 200
+  force  = true
+
 
