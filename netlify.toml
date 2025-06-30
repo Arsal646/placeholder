@@ -3,23 +3,18 @@
   publish = "dist/image-placeholder/browser"
   functions = "netlify/functions"
 
+[[redirects]]
+  from = "/image"
+  to = "/.netlify/functions/image"
+  status = 200
 
 [[redirects]]
-  from   = "/image"
-  to     = "/.netlify/functions/image"
+  from = "/image/*"
+  to = "/.netlify/functions/image"
   status = 200
-  force  = true
 
+# This should be LAST - catches all other routes for Angular SPA
 [[redirects]]
-  from   = "/image/"
-  to     = "/.netlify/functions/image"
+  from = "/*"
+  to = "/index.html"
   status = 200
-  force  = true
-
-[[redirects]]
-  from   = "/image/*"
-  to     = "/.netlify/functions/image/:splat"
-  status = 200
-  force  = true
-
-
