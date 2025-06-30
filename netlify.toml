@@ -9,9 +9,17 @@
   included_files         = ["node_modules/sharp/**/*"]   # ← NEW
 
 
-  [[redirects]]
-  from   = "/image/*"
-  to     = "/.netlify/functions/image/:splat"
+[[redirects]]
+  # Route for /api/image/*
+  from = "/api/image/*"
+  to   = "/.netlify/functions/image/:splat"
   status = 200
-  force  = true    # skip Angular’s route fallback
+  force = true
+
+[[redirects]]
+  # Route for /image/*
+  from = "/image/*"
+  to   = "/.netlify/functions/image/:splat"
+  status = 200
+  force = true
 
