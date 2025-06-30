@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:image-placeholder": "node dist/image-placeholder/server/server.mjs"
+    "serve:ssr:image-placeholder": "node dist/image-placeholder/server/server.mjs",
+    "dev":"netlify dev"
   },
   "private": true,
   "dependencies": {

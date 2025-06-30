@@ -5,7 +5,8 @@ exports.handler = async (event) => {
     const path = event.path || "";
 
     // Match /300x250.png or /300x250.svg etc. (after redirect removes /api/image)
-    const sizeMatch = path.match(/^\/(\d+)x(\d+)\.(png|jpg|jpeg|webp|svg)$/);
+    // const sizeMatch = path.match(/^\/(\d+)x(\d+)\.(png|jpg|jpeg|webp|svg)$/);
+    const sizeMatch = path.match(/(\d+)x(\d+)\.(png|jpg|webp|svg)$/);
 
     if (!sizeMatch) {
       return {
