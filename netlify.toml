@@ -8,18 +8,15 @@
   external_node_modules = ["sharp"]
   included_files         = ["node_modules/sharp/**/*"]   # ← NEW
 
+[[redirects]]
+  from   = "/image"
+  to     = "/.netlify/functions/image"
+  status = 200
+  force  = true
 
 [[redirects]]
-  # Route for /api/image/*
-  from = "/api/image/*"
-  to   = "/.netlify/functions/image/:splat"
+  from   = "/image/"
+  to     = "/.netlify/functions/image"
   status = 200
-  force = true
-
-[[redirects]]
-  # Route for /image/*
-  from = "/image/*"
-  to   = "/.netlify/functions/image/:splat"
-  status = 200
-  force = true
+  force  = true
 
